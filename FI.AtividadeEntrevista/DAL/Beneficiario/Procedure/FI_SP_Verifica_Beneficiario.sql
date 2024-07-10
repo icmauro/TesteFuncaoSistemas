@@ -1,0 +1,6 @@
+﻿CREATE PROC FI_SP_Verifica_Beneficiario
+    @CPF           VARCHAR (15)
+AS
+BEGIN
+	SELECT 1 FROM BENEFICIARIOS WHERE CPF = @CPF
+END

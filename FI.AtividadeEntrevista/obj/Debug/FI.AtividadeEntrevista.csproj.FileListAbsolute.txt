@@ -1,0 +1,6 @@
+C:\Users\Italo\source\repos\Entrevista\FI.AtividadeEntrevista\bin\Debug\FI.AtividadeEntrevista.dll
+C:\Users\Italo\source\repos\Entrevista\FI.AtividadeEntrevista\bin\Debug\FI.AtividadeEntrevista.pdb
+C:\Users\Italo\source\repos\Entrevista\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.csproj.AssemblyReference.cache
+C:\Users\Italo\source\repos\Entrevista\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.csproj.CoreCompileInputs.cache
+C:\Users\Italo\source\repos\Entrevista\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.dll
+C:\Users\Italo\source\repos\Entrevista\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.pdb
