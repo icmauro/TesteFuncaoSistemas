@@ -9,7 +9,7 @@ $(document).ready(function () {
             url: urlPostBeneficiarioInclusao,
             method: "POST",
             data: {
-                "IdCliente": $(this).find("#IdCliente").val(),
+                "IdCliente": $("#IdClienteForm").val(),
                 "Nome": $(this).find("#NomeBeneficiario").val(),
                 "Cpf": $(this).find("#CpfBeneficiario").val()
             },
@@ -32,7 +32,6 @@ $(document).ready(function () {
 
     //////////////////////////////////////////////////////////////////////////////////
 
-    //var tt = urlClienteListBeneficiario + '/IdCliente=' + $("#IdClienteForm").val();
 
     if (document.getElementById("gridBeneficiarios"))
         $('#gridBeneficiarios').jtable({
