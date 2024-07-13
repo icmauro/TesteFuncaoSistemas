@@ -49,7 +49,7 @@ $(document).ready(function () {
                     title: 'Nome',
                     width: '50%'
                 },
-                Email: {
+                Cpf: {
                     title: 'Cpf',
                     width: '35%'
                 },
@@ -62,7 +62,7 @@ $(document).ready(function () {
             }
         });
 
-    if (document.getElementById("gridClientes"))
-        $('#gridClientes').jtable('load');
+    if (document.getElementById("gridBeneficiarios"))
+        $('#gridBeneficiarios').jtable('load', { IdCliente: $("#IdClienteForm").val() });
 
 });

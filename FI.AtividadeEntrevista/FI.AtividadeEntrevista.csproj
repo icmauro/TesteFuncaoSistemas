@@ -55,7 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DAL\Beneficiario\Procedure\FI_SP_IncBeneficiario - Copy.sql" />
+    <Content Include="DAL\Beneficiario\Procedure\FI_SP_IncBeneficiario.sql" />
     <Content Include="DAL\Beneficiario\Procedure\FI_SP_PesqBeneficiario.sql" />
     <Content Include="DAL\Beneficiario\Procedure\FI_SP_Verifica_Beneficiario.sql" />
     <Content Include="DAL\Clientes\Procedures\FI_SP_AltCliente.sql" />

@@ -8,7 +8,8 @@
         var urlPostBeneficiarioInclusao = '@Url.Action("Incluir","Beneficiario","")';
         var obj = @Html.Raw(Json.Encode(Model));
         var urlRetorno = '@Url.Action("Index", "Cliente", new { area = "" })';
-        var urlClienteListBeneficiario = '@Url.Action("ClienteList", "Beneficiario", new { area = "" })';
+        var urlClienteListBeneficiario = '@Url.Action("BeneficiarioList", "Beneficiario", new { area = "" })';
+        var urlAlteracao = '@Url.Action("Alterar", "Beneficiario", new { area = "" })';
     </script>
     @Scripts.Render("~/bundles/altClientes")
 }

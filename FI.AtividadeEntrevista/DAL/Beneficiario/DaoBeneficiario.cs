@@ -33,17 +33,17 @@ namespace FI.AtividadeEntrevista.DAL
         /// Inclui um novo cliente
         /// </summary>
         /// <param name="cliente">Objeto de cliente</param>
-        internal DML.Cliente Consultar(long Id)
-        {
-            List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>();
+        //internal DML.Cliente Consultar(long Id)
+        //{
+        //    List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>();
 
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Id", Id));
+        //    parametros.Add(new System.Data.SqlClient.SqlParameter("Id", Id));
 
-            DataSet ds = base.Consultar("FI_SP_ConsCliente", parametros);
-            List<DML.Cliente> cli = Converter(ds);
+        //    DataSet ds = base.Consultar("FI_SP_ConsCliente", parametros);
+        // //   List<DML.Cliente> cli = Converter(ds);
 
-            return cli.FirstOrDefault();
-        }
+        //    return cli.FirstOrDefault();
+        //}
 
         internal bool VerificarExistencia(string CPF)
         {
@@ -56,7 +56,7 @@ namespace FI.AtividadeEntrevista.DAL
             return ds.Tables[0].Rows.Count > 0;
         }
 
-        internal List<Cliente> Pesquisa(int iniciarEm, int quantidade, string campoOrdenacao, bool crescente, out int qtd)
+        internal List<Beneficiario> Pesquisa(int iniciarEm, int quantidade, string campoOrdenacao, bool crescente, long IdCliente, out int qtd)
         {
             List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>();
 
@@ -64,14 +64,18 @@ namespace FI.AtividadeEntrevista.DAL
             parametros.Add(new System.Data.SqlClient.SqlParameter("quantidade", quantidade));
             parametros.Add(new System.Data.SqlClient.SqlParameter("campoOrdenacao", campoOrdenacao));
             parametros.Add(new System.Data.SqlClient.SqlParameter("crescente", crescente));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("IdCliente", IdCliente));
 
             DataSet ds = base.Consultar("FI_SP_PesqBeneficiario", parametros);
-            List<DML.Cliente> cli = Converter(ds);
+            List<DML.Beneficiario> cli = Converter(ds);
 
             int iQtd = 0;
 
-            if (ds.Tables.Count > 1 && ds.Tables[1].Rows.Count > 0)
-                int.TryParse(ds.Tables[1].Rows[0][0].ToString(), out iQtd);
+            //if (ds.Tables.Count > 1 && ds.Tables[1].Rows.Count > 0)
+            //    int.TryParse(ds.Tables[1].Rows[0][0].ToString(), out iQtd);
+
+            if (ds.Tables.Count > 0)
+                int.TryParse(ds.Tables[0].Rows.Count.ToString(), out iQtd);
 
             qtd = iQtd;
 
@@ -81,17 +85,17 @@ namespace FI.AtividadeEntrevista.DAL
         /// <summary>
         /// Lista todos os clientes
         /// </summary>
-        internal List<DML.Cliente> Listar()
-        {
-            List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>();
+        //internal List<DML.Cliente> Listar()
+        //{
+        //    List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>();
 
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Id", 0));
+        //    parametros.Add(new System.Data.SqlClient.SqlParameter("Id", 0));
 
-            DataSet ds = base.Consultar("FI_SP_ConsCliente", parametros);
-            List<DML.Cliente> cli = Converter(ds);
+        //    DataSet ds = base.Consultar("FI_SP_ConsCliente", parametros);
+        //    List<DML.Cliente> cli = Converter(ds);
 
-            return cli;
-        }
+        //    return cli;
+        //}
 
         /// <summary>
         /// Inclui um novo cliente
@@ -130,26 +134,19 @@ namespace FI.AtividadeEntrevista.DAL
             base.Executar("FI_SP_DelCliente", parametros);
         }
 
-        private List<DML.Cliente> Converter(DataSet ds)
+        private List<DML.Beneficiario> Converter(DataSet ds)
         {
-            List<DML.Cliente> lista = new List<DML.Cliente>();
+            List<DML.Beneficiario> lista = new List<DML.Beneficiario>();
             if (ds != null && ds.Tables != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
-                    DML.Cliente cli = new DML.Cliente();
-                    cli.Id = row.Field<long>("Id");
-                    cli.CEP = row.Field<string>("CEP");
-                    cli.Cidade = row.Field<string>("Cidade");
-                    cli.Email = row.Field<string>("Email");
-                    cli.Estado = row.Field<string>("Estado");
-                    cli.Logradouro = row.Field<string>("Logradouro");
-                    cli.Nacionalidade = row.Field<string>("Nacionalidade");
-                    cli.Nome = row.Field<string>("Nome");
-                    cli.Sobrenome = row.Field<string>("Sobrenome");
-                    cli.Cpf = row.Field<string>("Cpf");
-                    cli.Telefone = row.Field<string>("Telefone");
-                    lista.Add(cli);
+                    DML.Beneficiario beneficiario = new DML.Beneficiario();
+                    beneficiario.Id = row.Field<long>("Id");
+                    beneficiario.IdCliente = row.Field<long>("Id");
+                    beneficiario.Nome = row.Field<string>("Nome");
+                    beneficiario.Cpf = row.Field<string>("Cpf");
+                    lista.Add(beneficiario);
                 }
             }
 

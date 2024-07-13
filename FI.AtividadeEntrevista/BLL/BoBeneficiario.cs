@@ -37,11 +37,11 @@ namespace FI.AtividadeEntrevista.BLL
         /// </summary>
         /// <param name="id">id do cliente</param>
         /// <returns></returns>
-        public DML.Cliente Consultar(long id)
-        {
-            DAL.DaoBeneficiario cli = new DAL.DaoBeneficiario();
-            return cli.Consultar(id);
-        }
+        //public DML.Cliente Consultar(long id)
+        //{
+        //    DAL.DaoBeneficiario cli = new DAL.DaoBeneficiario();
+        //    return cli.Consultar(id);
+        //}
 
         /// <summary>
         /// Excluir o cliente pelo id
@@ -57,18 +57,18 @@ namespace FI.AtividadeEntrevista.BLL
         /// <summary>
         /// Lista os clientes
         /// </summary>
-        public List<DML.Cliente> Listar()
-        {
-            DAL.DaoBeneficiario cli = new DAL.DaoBeneficiario();
-            return cli.Listar();
-        }
+        //public List<DML.Beneficiario> Listar()
+        //{
+        //    DAL.DaoBeneficiario cli = new DAL.DaoBeneficiario();
+        //    return cli.Listar();
+        //}
 
         /// <summary>
         /// Lista os clientes
         /// </summary>
-        public List<DML.Cliente> Pesquisa(int iniciarEm, int quantidade, string campoOrdenacao, bool crescente, out int qtd)
+        public List<DML.Beneficiario> Pesquisa(int iniciarEm, int quantidade, string campoOrdenacao, bool crescente, long IdCliente, out int qtd)
         {
-            return beneficiarioDAL.Pesquisa(iniciarEm,  quantidade, campoOrdenacao, crescente, out qtd);
+            return beneficiarioDAL.Pesquisa(iniciarEm,  quantidade, campoOrdenacao, crescente, IdCliente, out qtd);
         }
 
         /// <summary>

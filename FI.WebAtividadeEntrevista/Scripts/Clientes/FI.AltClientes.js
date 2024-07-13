@@ -53,7 +53,7 @@ $(document).ready(function () {
 
 
     $('#BtnBeneficiarios').on('click', () => {
-        $('#IdCliente').val($('#IdClienteForm').val());
+        //$('#IdCliente').val($('#IdClienteForm').val());
         $("#modal-beneficiarios").modal('show');
     });
     
